@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+
+train = Train.create(
+  name: 'Shanti Express ',
+  source_station: 'Indore',
+  last_station: 'Gandhinagar',
+  start_time: '23:00 Hrs',
+  end_time: '08:30 Hrs'
+  )

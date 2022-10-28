@@ -1,0 +1,24 @@
+<h1>Trains</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name:</th>
+      <th>Source Station:</th>
+      <th>Last Station:</th>
+      <th>Start Time:</th>
+      <th>End Time:</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @trains.each do |train| %>
+      <tr>
+        <td><%= train.name %></td>
+        <td><%= train.source_station %></td>
+        <td><%= train.last_station %></td>
+        <td><%= train.start_time %></td>
+        <td><%= train.end_time %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
