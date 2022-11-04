@@ -1,0 +1,10 @@
+<h1>Train</h1>
+
+<p><strong>Name:</strong><%= @train.name %></p>
+<p><strong>Source Station:</strong><%= @train.source_station %></p>
+<p><strong>Destination:</strong><%= @train.last_station %></p>
+<p><strong>Strating From:</strong><%= @train.start_time %></p>
+<p><strong>To End:</strong><%= @train.end_time %></p>
+
+
+<%= link_to 'Back', trains_path %>|<%= link_to 'Edit', edit_train_path(@train) %>

@@ -1,7 +1,4 @@
 class FirstController < ApplicationController
-
-  def index
-    
+  def index  
   end
-
 end
