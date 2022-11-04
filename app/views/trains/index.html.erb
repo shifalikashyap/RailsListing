@@ -1,30 +1,36 @@
-<h1>Trains</h1>
+<div class="col-lg-12">
+  <div class="card rounded-0 mt-5 mb-5">
+    <div class="card-body">
+      <h2 class="text-center">Trains</h2>
+    </div>
+  </div>
 
-<%= link_to 'New Train', new_train_path, class: "btn btn-primary", style: "height:50px;width:150px" %>
+  <%= link_to 'New Train', new_train_path, class: "btn btn-primary btn-lg rounded-0" %>
 
-<table class= "table table-bordered mt-5">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Source Station</th>
-      <th>Last Station</th>
-      <th>Start Time</th>
-      <th>End Time</th>
-      <th colspan="3">Actions</th>
-    </tr>
-  </thead>
-    <tbody>
-      <% @trains.each do |train| %>
-        <tr>
-          <td><%= train.name %></td>
-          <td><%= train.source_station %></td>
-          <td><%= train.last_station %></td>
-          <td><%= train.start_time %></td>
-          <td><%= train.end_time %></td>
-          <td><%= link_to 'View', train %></td>
-          <td><%= link_to 'Edit', edit_train_path(train) %></td>
-          <td><%= link_to 'Destroy', train, method: :delete, data: {confirm: 'Are you sure?'} %></td>
-        </tr>
-      <% end %>
-    </tbody>
-</table>
+  <table class= "table table-bordered mt-5">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Source Station</th>
+        <th>Last Station</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th colspan="3">Actions</th>
+      </tr>
+    </thead>
+      <tbody>
+        <% @trains.each do |train| %>
+          <tr>
+            <td><%= train.name %></td>
+            <td><%= train.source_station %></td>
+            <td><%= train.last_station %></td>
+            <td><%= train.start_time %></td>
+            <td><%= train.end_time %></td>
+            <td><%= link_to 'View', train, class: "btn btn-success" %></td>
+            <td><%= link_to 'Edit', edit_train_path(train), class:"btn btn-primary" %></td>
+            <td><%= link_to 'Destroy', train, class: "btn btn-danger",method: :delete, data: {confirm: 'Are you sure?'} %></td>
+          </tr>
+        <% end %>
+      </tbody>
+  </table>
+</div>

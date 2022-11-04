@@ -11,10 +11,10 @@ class TrainsController < ApplicationController
 
   def create
     @train = Train.new(train_params)
-      if @train.save
-        redirect_to trains_path
-      else
-        render :new
+    if @train.save
+      redirect_to trains_path, notice: 'Train has been added'
+    else
+      render :new
     end
   end
 
@@ -29,10 +29,10 @@ class TrainsController < ApplicationController
 
   def update
     @train = Train.find(params[:id])
-      if @train.update(train_params)
-        redirect_to trains_path(@train)
-      else
-        render :edit
+    if @train.update(train_params)
+      redirect_to trains_path(@train)
+    else
+      render :edit
     end
   end
 

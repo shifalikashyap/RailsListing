@@ -1,10 +1,30 @@
-<h1>Train</h1>
-
-<p><strong>Name:</strong><%= @train.name %></p>
-<p><strong>Source Station:</strong><%= @train.source_station %></p>
-<p><strong>Destination:</strong><%= @train.last_station %></p>
-<p><strong>Strating From:</strong><%= @train.start_time %></p>
-<p><strong>To End:</strong><%= @train.end_time %></p>
-
-
-<%= link_to 'Back', trains_path %>|<%= link_to 'Edit', edit_train_path(@train) %>
+<div class="col-lg-12">
+  <div class="card rounded-0 mt-5 mb-5">
+    <div class="card-body">
+      <h2 class="text-center">Train Details</h2>
+      <div class="row">
+         <div class="col-lg-6">
+           <h5>Name:<%= @train.name %></h5>
+         </div>
+         <div class="col-lg-6">
+           <h5>Source Station:</h5>
+           <p><%= @train.source_station %></p>
+         </div>
+         <div class="col-lg-6">
+           <h5>Destination:</h5>
+           <p><%= @train.last_station %></p>
+         </div>
+         <div class="col-lg-6">
+           <h5>Starting From:</h5>
+           <p><%= @train.start_time %></p>
+         </div>
+         <div class="col-lg-6">
+           <h5>End:</h5>
+           <p><%= @train.end_time %></p>
+         </div>
+      </div>
+    </div>
+  </div>
+  <%= link_to 'Back', trains_path, class: "btn btn-primary" %>
+    =<%= link_to 'Edit', edit_train_path(@train), class: "btn btn-primary" %>
+</div>

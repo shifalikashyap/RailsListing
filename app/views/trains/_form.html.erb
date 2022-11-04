@@ -1,46 +1,78 @@
+<div class="col-lg-12">
+  <%= form_with model: train, html: { data: { turbo: false } } do |form| %>
 
-<%= form_with model: train do |form| %>
   <div class= "form-group mt-2">
     <%= form.label :name, "Name:", class: "col-md-4 control-label" %><br>
-    <div class="col-md-8">
+    <div class="col-lg-6">
       <%= form.text_field :name, class: "form-control" %>
+      <% train.errors.full_messages_for(:name).each do |message| %>
+      <p class="text-danger"><%= message %></p>
+      <% end %>
     </div>
   </div>
 
-  <div class= "form-group mt-2">
-    <%= form.label :source_station, "Source:", class: "col-md-4 control-label" %><br>
-    <div class="col-md-8">
-      <%= form.text_field :source_station, class: "form-control" %>
+  <div class="row">
+    <div class="col-lg-6">
+      <div class= "form-group mt-2">
+        <%= form.label :source_station, "Source:", class: "col-md-4 control-label" %><br>
+        <div class="col-md-8">
+          <%= form.text_field :source_station, class: "form-control" %>
+          <% train.errors.full_messages_for(:source_station).each do |message| %>
+          <p class="text-danger"><%= message %></p>
+          <% end %>
+        </div>
+      </div>
     </div>
-  </div>
+    
 
-  <div class= "form-group mt-2">
-    <%= form.label :last_station, "Destination:", class: "col-md-4 control-label" %><br>
-    <div class="col-md-8">
-      <%= form.text_field :last_station, class: "form-control" %>
-    </div>
-  </div>
-
-
-  <div class= "form-group mt-2">
-    <%= form.label :start_time, "Starting from:", class: "col-md-4 control-label" %><br>
-    <div class="col-md-8">
-      <%= form.text_field :start_time, class: "form-control" %>
-    </div>
-  </div>
-
-
-
-  <div class= "form-group mt-2">
-    <%= form.label :end_time, "To End:", class: "col-md-4 control-label" %><br>
-    <div class="col-md-8">
-      <%= form.text_field :start_time, class: "form-control" %>
+    <div class="col-lg-6">
+      <div class= "form-group mt-2">
+        <%= form.label :last_station, "Destination:", class: "col-md-4 control-label" %><br>
+        <div class="col-md-8">
+          <%= form.text_field :last_station, class: "form-control" %>
+          <% train.errors.full_messages_for(:last_station).each do |message| %>
+          <p class="text-danger"><%= message %></p>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 
 
-  <div class="form-group mt-3">
-    <%= form.submit class: "btn btn-primary" %>
+  <div class="row">
+    <div class="col-lg-6">
+      <div class= "form-group mt-2">
+        <%= form.label :start_time, "Starting from:", class: "col-md-4 control-label" %><br>
+        <div class="col-md-8">
+          <%= form.text_field :start_time, class: "form-control" %>
+          <% train.errors.full_messages_for(:start_time).each do |message| %>
+          <p class="text-danger"><%= message %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-lg-6">
+      <div class= "form-group mt-2">
+        <%= form.label :end_time, "To End:", class: "col-md-4 control-label" %><br>
+        <div class="col-md-8">
+          <%= form.text_field :end_time, class: "form-control" %>
+          <% train.errors.full_messages_for(:end_time).each do |message| %>
+          <p class="text-danger"><%= message %></p>
+          <% end %>
+        </div>
+      </div>
+    </div> 
   </div>
 
-<% end %>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="form-group mt-3">
+        <%= form.submit class: "btn btn-primary btn-lg rounded-0" %>
+      </div>
+    </div>
+  </div>
+
+  <% end %>
+</div>
