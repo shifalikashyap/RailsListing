@@ -1,4 +1,6 @@
 class FirstController < ApplicationController
-  def index  
+  def index
+    @q = Train.ransack(params[:q])
+    @trains = @q.result(distinct: true)
   end
 end

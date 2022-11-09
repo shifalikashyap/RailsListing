@@ -3,7 +3,6 @@ class TrainsController < ApplicationController
   def index
     @q = Train.ransack(params[:q])
     @trains = @q.result(distinct: true)
-    # @trains = Train.all
   end
 
 
