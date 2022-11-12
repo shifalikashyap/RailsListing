@@ -3,22 +3,8 @@
     <div class="card shadow-sm p-3 bg-white rounded">
       <div class="row">
         <h2 class="text-center" style="color: blue;">Search Train</h2>
-        <div class="col-lg-6">
-            <%= search_form_for @q, url: 'home/search_result' do |form| %>
-              <div class="form-group mt-4">
-                <%= form.label :source_station, "Source:" %>
-                <%= form.text_field :source_station_cont, class: "form-control" %>
-              </div>
-
-              <div class="form-group mt-4">
-                <%= form.label :last_station, "Destination:" %>
-                <%= form.text_field :last_station_cont, class: "form-control" %>
-              </div>
-
-              <div class="form-group mt-4 mb-3">
-                <%= form.submit class: "btn btn-primary btn-lg" %>
-              </div>
-            <% end %>
+        <div class="col-lg-12">
+          <%= render "shared/search_form", q: @q, url: 'home/search_result' %>
         </div>
       </div>
     </div>
