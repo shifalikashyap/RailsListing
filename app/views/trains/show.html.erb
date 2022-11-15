@@ -16,11 +16,11 @@
          </div>
          <div class="col-lg-6">
            <h5>Starting From:</h5>
-           <p><%= @train.start_time %></p>
+           <p><%= @train.start_time.strftime("%H:%M %p") %></p>
          </div>
          <div class="col-lg-6">
            <h5>To:</h5>
-           <p><%= @train.end_time %></p>
+           <p><%= @train.end_time.strftime("%H:%M %p") %></p>
          </div>
       </div>
     </div>
