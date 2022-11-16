@@ -11,4 +11,12 @@ class Train < ApplicationRecord
       errors.add(:start_time, "can not be greater than end time")
     end
   end
+
+  def train_hours
+    "#{((end_time.to_time - start_time.to_time)/1.hours).abs}hours"
+  end
+
+  def train_duration
+    "#{end_time.strftime("%H:%M %p")} to #{start_time.strftime("%H:%M %p")} (#{train_hours})"
+  end
 end
