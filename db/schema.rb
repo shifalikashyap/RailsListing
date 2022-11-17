@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_28_091615) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_17_104809) do
+  create_table "stations", force: :cascade do |t|
+    t.string "code"
+    t.string "name"
+    t.string "state"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "trains", force: :cascade do |t|
     t.string "name"
     t.string "source_station"
