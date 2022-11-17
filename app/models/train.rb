@@ -1,4 +1,5 @@
 class Train < ApplicationRecord
+  paginates_per 10
   validates :name, :source_station, :last_station, :start_time, :end_time, presence: true
   validates :name, uniqueness: true
   validate :valid_time_range
