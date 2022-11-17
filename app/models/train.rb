@@ -1,4 +1,6 @@
 class Train < ApplicationRecord
+  has_many :train_stations
+  has_many :stations, through: :train_stations
   paginates_per 10
   validates :name, :source_station, :last_station, :start_time, :end_time, presence: true
   validates :name, uniqueness: true

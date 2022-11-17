@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_17_104809) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_17_114024) do
   create_table "stations", force: :cascade do |t|
     t.string "code"
     t.string "name"
@@ -19,6 +19,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_17_104809) do
     t.float "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "train_stations", force: :cascade do |t|
+    t.integer "train_id", null: false
+    t.integer "station_id", null: false
+    t.integer "day"
+    t.integer "distance_in_km"
+    t.datetime "arrival_time"
+    t.datetime "departure_time"
+    t.datetime "total_halt_in_minutes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["station_id"], name: "index_train_stations_on_station_id"
+    t.index ["train_id"], name: "index_train_stations_on_train_id"
   end
 
   create_table "trains", force: :cascade do |t|
@@ -31,4 +45,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_17_104809) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "train_stations", "stations"
+  add_foreign_key "train_stations", "trains"
 end

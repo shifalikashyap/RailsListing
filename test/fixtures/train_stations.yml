@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  train: one
+  station: one
+  day: 1
+  distance_in_km: 1
+  arrival_time: 2022-11-17 17:10:24
+  departure_time: 2022-11-17 17:10:24
+  total_halt_in_minutes: 2022-11-17 17:10:24
+
+two:
+  train: two
+  station: two
+  day: 1
+  distance_in_km: 1
+  arrival_time: 2022-11-17 17:10:24
+  departure_time: 2022-11-17 17:10:24
+  total_halt_in_minutes: 2022-11-17 17:10:24
