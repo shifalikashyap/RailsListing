@@ -10,27 +10,13 @@
     </div>
   </div>
 
-  <div class="card mt-5 mb-5">
-    <div class="card shadow-sm p-3 bg-white rounded">
-      <div class="row">
-      <h2 class="text-center" style="color: seagreen;">Results</h2>
-      <table class= "table table-bordered table-hover mt-3 mb-7">
-        <thead>
-          <tr>
-            <th class="table-info text-center">Name</th>
-            <th class="table-info text-center">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @trains.each do |train| %>
-          <tr>
-            <td><%= train.name %></td>
-            <td class="text-center"><%= link_to 'View', train, class: "btn btn-success" %></td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
+  <% @trains.each do |train| %>
+    <div class="card mt-5 mb-5">
+      <div class="card shadow-sm p-3 bg-white rounded">
+        <p class="lead"><%= train.name %></p>
+        <p class="lead">Starting From:<%= train.start_time.strftime("%H:%M %p") %></p>
+        <p class="lead">End:<%= train.end_time.strftime("%H:%M %p") %></p>
       </div>
     </div>
-  </div>
+  <% end %>
 </div>
