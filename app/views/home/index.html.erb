@@ -1,11 +1,10 @@
-<h1 class="text-center mt-5 mb-5">Welcome New Railway App</h1>
 <div class="col-lg-12">
-  <div class="card">
+  <div class="card mt-5">
     <div class="card shadow-sm p-3 bg-white rounded">
       <div class="row">
         <h2 class="text-center" style="color: blue;">Search Train</h2>
         <div class="col-lg-12">
-            <%= render "shared/search_form", q: @q, url: 'home/search_result' %>
+          <%= render "shared/search_form", q: @q, url: 'search_result' %>
         </div>
       </div>
     </div>

@@ -1,4 +1,6 @@
 class StationsController < ApplicationController
+  before_action :set_station, only: %i[show edit update destroy]
+
   def index
     @stations = Station.all
   end
@@ -17,15 +19,12 @@ class StationsController < ApplicationController
   end
 
   def show
-    @station = Station.find(params[:id])
   end
 
   def edit
-    @station = Station.find(params[:id])
   end
 
   def update
-    @station = Station.find(params[:id])
     if @station.update(station_params)
       redirect_to stations_path(@station)
     else
@@ -34,7 +33,6 @@ class StationsController < ApplicationController
   end
 
   def destroy
-    @station = Station.find(params[:id])
     @station.destroy
     redirect_to stations_path
   end
@@ -43,6 +41,10 @@ class StationsController < ApplicationController
 
   def station_params
     params.require(:station).permit(:code, :name, :state, :longitude, :latitude)
+  end
+
+  def set_station
+    @station = Station.find(params[:id])
   end
 
 end

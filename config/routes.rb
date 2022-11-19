@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   resources :trains
   resources :stations
 
-  get  'home/search_result'
+  get 'search_result' => 'home#search_result'
 end

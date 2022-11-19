@@ -1,5 +1,6 @@
 class TrainsController < ApplicationController
-
+  before_action :set_train, only: %i[show edit update destroy]
+  
   def index
     @q = Train.ransack(params[:q])
     @trains = @q.result(distinct: true).page(params[:page])
@@ -21,15 +22,12 @@ class TrainsController < ApplicationController
 
 
   def show
-    @train = Train.find(params[:id])
   end
 
   def edit
-    @train = Train.find(params[:id])
   end
 
   def update
-    @train = Train.find(params[:id])
     if @train.update(train_params)
       redirect_to trains_path(@train)
     else
@@ -39,7 +37,6 @@ class TrainsController < ApplicationController
 
 
   def destroy
-    @train = Train.find(params[:id])
     @train.destroy
     redirect_to trains_path
   end
@@ -48,5 +45,9 @@ class TrainsController < ApplicationController
 
   def train_params
     params.require(:train).permit(:name, :source_station, :last_station, :start_time, :end_time)
+  end
+
+  def set_train
+    @train = Train.find(params[:id])
   end
 end
