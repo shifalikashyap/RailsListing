@@ -1,0 +1,29 @@
+<div class="col-lg-12">
+  <div class="card rounded-0 mt-5 mb-5">
+    <div class="card-body">
+      <div class="row">
+         <div class="col-lg-12">
+           <h5 class="text-center mt-2 mb-5" style="color:royalblue;">Code:<%= @station.code %></h5>
+         </div>
+         <div class="col-lg-6">
+           <h5>Name:</h5>
+           <p><%= @station.name %></p>
+         </div>
+         <div class="col-lg-6">
+           <h5>State:</h5>
+           <p><%= @station.state %></p>
+         </div>
+         <div class="col-lg-6">
+           <h5>Longitude:</h5>
+           <p><%= @station.longitude %></p>
+         </div>
+         <div class="col-lg-6">
+           <h5>Latitude:</h5>
+           <p><%= @station.latitude %></p>
+         </div>
+      </div>
+    </div>
+  </div>
+  <%= link_to 'Back', stations_path, class: "btn btn-success btn-lg" %>
+  <%= link_to 'Edit', edit_station_path(@station), class: "btn btn-primary btn-lg" %>
+</div>

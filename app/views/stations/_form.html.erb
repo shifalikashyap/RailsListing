@@ -1,0 +1,78 @@
+<div class="col-lg-12">
+  <%= form_with model: station, html: { data: { turbo: false } } do |form| %>
+
+  <div class= "form-group mt-2">
+    <%= form.label :code, "Code:", class: "col-md-4 control-label" %><br>
+    <div class="col-lg-6">
+      <%= form.text_field :code, class: "form-control" %>
+      <% station.errors.full_messages_for(:code).each do |message| %>
+      <p class="text-danger"><%= message %></p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6">
+      <div class= "form-group mt-2">
+        <%= form.label :name, "Name:", class: "col-md-4 control-label" %><br>
+        <div class="col-md-8">
+          <%= form.text_field :name, class: "form-control" %>
+          <% station.errors.full_messages_for(:name).each do |message| %>
+          <p class="text-danger"><%= message %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="col-lg-6">
+      <div class= "form-group mt-2">
+        <%= form.label :state, "State:", class: "col-md-4 control-label" %><br>
+        <div class="col-md-8">
+          <%= form.text_field :state, class: "form-control" %>
+          <% station.errors.full_messages_for(:state).each do |message| %>
+          <p class="text-danger"><%= message %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-lg-6">
+      <div class= "form-group mt-2">
+        <%= form.label :longitude, "Longitude:", class: "col-md-4 control-label" %><br>
+        <div class="col-md-8">
+          <%= form.number_field :longitude, class: "form-control" %>
+          <% station.errors.full_messages_for(:longitude).each do |message| %>
+          <p class="text-danger"><%= message %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-lg-6">
+      <div class= "form-group mt-2">
+        <%= form.label :latitude, "Latitude:", class: "col-md-4 control-label" %><br>
+        <div class="col-md-8">
+          <%= form.number_field :latitude, class: "form-control" %>
+          <% station.errors.full_messages_for(:latitude).each do |message| %>
+          <p class="text-danger"><%= message %></p>
+          <% end %>
+        </div>
+      </div>
+    </div> 
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="form-group mt-3">
+        <%= form.submit class: "btn btn-primary btn-lg rounded" %>
+      </div>
+    </div>
+  </div>
+
+  <% end %>
+</div>
