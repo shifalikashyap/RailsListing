@@ -802,8 +802,56 @@ Train.create([{
 
 
 
+Station.create([
+  {
+  code: 'CSTM',
+  name: 'CST Mumbai',
+  state: 'Maharashtra',
+  latitude: '18.9398',
+  longitude: '72.8354'
+  },
 
+  { 
+    code: 'LTT',
+    name: 'Lokmanyatilak',
+    state: 'Maharashtra',
+    latitude: 19.0697,
+    longitude: 72.8920
+  },
 
+  { 
+    code: 'LTT',
+    name: 'Lokmanyatilak',
+    state: 'Maharashtra',
+    latitude: 19.0697,
+    longitude: 72.8920
+  },
+
+  { 
+    code: 'PA',
+    name: 'Pune',
+    state: 'Maharashtra',
+    latitude: 18.5204,
+    longitude: 73.8567
+  },
+
+  { 
+    code: 'NGP',
+    name: 'Nagpur',
+    state: 'Maharashtra',
+    latitude: 21.1458,
+    longitude: 79.0882
+  },
+
+#{indore to delhi}
+
+{
+  code: 'INDB',
+  name: 'Indore',
+  state: 'Madhya Pradesh',
+  latitude: 22.7196,
+  longitude: 75.8577
+}
 
 
 

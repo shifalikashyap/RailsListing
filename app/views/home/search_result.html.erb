@@ -9,13 +9,20 @@
       </div>
     </div>
   </div>
-
-  <% @trains.each do |train| %>
+  <% if @trains.present? %>
+    <% @trains.each do |train| %>
+      <div class="card mt-5 mb-5">
+        <div class="card shadow-sm p-3 bg-white rounded">
+          <p class="font-weight-bold" style="color:blue; font-size: 35px;"><%= train.name %></p>
+          <p class="font-weight-normal" style="color:black; font-size:20px;">Starting From:<%= train.start_time.strftime("%H:%M %p") %></p>
+          <p class="font-weight-normal" style="color:black; font-size:20px;" >To End:<%= train.end_time.strftime("%H:%M %p") %></p>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
     <div class="card mt-5 mb-5">
-      <div class="card shadow-sm p-3 bg-white rounded">
-        <p class="font-weight-bold" style="color:blue; font-size: 35px;"><%= train.name %></p>
-        <p class="font-weight-normal" style="color:black; font-size:20px;">Starting From:<%= train.start_time.strftime("%H:%M %p") %></p>
-        <p class="font-weight-normal" style="color:black; font-size:20px;" >To End:<%= train.end_time.strftime("%H:%M %p") %></p>
+      <div class="card-body">
+        <p class="lead">Oops! No trains are available for particular Route.</p>
       </div>
     </div>
   <% end %>
