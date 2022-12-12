@@ -1,33 +1,55 @@
 <div class="col-lg-12">
-  <div class="card rounded-0 mt-5 mb-5">
-    <div class="card-body">
-      <div class="row">
-         <div class="col-lg-12">
-           <h5 class="text-center mt-2 mb-5" style="color:royalblue;">Name:<%= @train.name %></h5>
-         </div>
-         <div class="col-lg-6">
-           <h5>Source Station:</h5>
-           <p><%= @train.source_station %></p>
-         </div>
-         <div class="col-lg-6">
-           <h5>Destination:</h5>
-           <p><%= @train.last_station %></p>
-         </div>
-         <div class="col-lg-6">
-           <h5>Starting From:</h5>
-           <p><%= @train.start_time.strftime("%H:%M %p") %></p>
-         </div>
-         <div class="col-lg-6">
-           <h5>To:</h5>
-           <p><%= @train.end_time.strftime("%H:%M %p") %></p>
-         </div>
-         <div class="col-lg-6">
-           <h5>Duration:</h5>
-           <p><%= @train.train_duration %></p>
-         </div>
-      </div>
-    </div>
-  </div>
-  <%= link_to 'Back', trains_path, class: "btn btn-success btn-lg" %>
-  <%= link_to 'Edit', edit_train_path(@train), class: "btn btn-primary btn-lg" %>
+  <div class="row">
+    <div class="col-lg-12">
+     <h5 class="text-center mt-2 mb-5" style="color:royalblue;">Name:<%= @train.name %></h5>
+   </div>
+   <div class="col-lg-6">
+     <h5>Source Station:</h5>
+     <p><%= @train.source_station %></p>
+   </div>
+   <div class="col-lg-6">
+     <h5>Destination:</h5>
+     <p><%= @train.last_station %></p>
+   </div>
+   <div class="col-lg-6">
+     <h5>Starting From:</h5>
+     <p><%= @train.start_time.strftime("%H:%M %p") %></p>
+   </div>
+   <div class="col-lg-6">
+     <h5>To:</h5>
+     <p><%= @train.end_time.strftime("%H:%M %p") %></p>
+   </div>
+   <div class="col-lg-6">
+     <h5>Duration:</h5>
+     <p><%= @train.train_duration %></p>
+   </div>
+ </div>
+ <!-- associations -->
+  <table class= "table table-bordered mt-5">
+    <thead>
+      <tr>
+        <th>Halt Stations(Route)</th>
+        <th>Days</th>
+        <th>Distance</th>
+        <th>Arrival Time</th>
+        <th>Departure Time</th>
+        <th>Halt Duration</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @train.train_stations.each do |train_station| %>
+      <tr>
+        <td><%= train_station.station.name %></td>
+        <td><%= train_station.day %></td>
+        <td><%= train_station.distance_in_km %></td>
+        <td><%= train_station.arrival_time.strftime("%H:%M %p") %></td>
+        <td><%= train_station.departure_time.strftime("%H:%M %p") %></td>
+        <td><%= train_station.total_halt_in_minutes.strftime("%H:%M:%S") %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+<%= link_to 'Back', trains_path, class: "btn btn-success btn-lg" %>
+<%= link_to 'Edit', edit_train_path(@train), class: "btn btn-primary btn-lg" %>
 </div>

@@ -16,7 +16,7 @@ class Train < ApplicationRecord
   end
 
   def train_hours
-    "#{((end_time.to_time - start_time.to_time)/1.hours).abs}hours"
+    "#{((end_time.to_time - start_time.to_time)/1.hours).abs.round(2)} hours"
   end
 
   def train_duration
