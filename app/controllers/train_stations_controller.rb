@@ -1,18 +1,18 @@
-class Train_Stations_Controller < ApplicationController
-  before_action :set_train, only: %i[show edit update destroy]
+class TrainStationsController < ApplicationController
+  before_action :set_train_station, only: %i[show edit update destroy]
   
   def index
-    @train_stations = Train_Stations.all
+    @train_stations = TrainStation.all
   end
 
   def new
-    @Train_Station = Train_Station.new
+    @train_station = TrainStation.new
   end
 
   def create
-    @station = Station.new(station_params)
-    if @station.save
-      redirect_to stations_path, notice: 'Station has been added'
+    @train_station = TrainStation.new(train_station_params)
+    if @train_station.save
+      redirect_to train_stations_path, notice: 'Attributes has been added'
     else
       render :new
     end
@@ -25,26 +25,27 @@ class Train_Stations_Controller < ApplicationController
   end
 
   def update
-    if @station.update(station_params)
-      redirect_to stations_path(@station)
+    if @train_station.update(train_station_params)
+      redirect_to train_stations_path(@train_station)
     else
       render :edit
     end
   end
+  
 
   def destroy
-    @station.destroy
-    redirect_to stations_path
+    @train_station.destroy
+    redirect_to train_stations_path
   end
 
   private
 
-  def station_params
-    params.require(:station).permit(:code, :name, :state, :longitude, :latitude)
+  def train_station_params
+    params.require(:train_station).permit(:train_id, :station_id, :day, :distance_in_km, :arrival_time, :departure_time, :total_halt_in_minutes)
   end
 
-  def set_station
-    @station = Station.find(params[:id])
+  def set_train_station
+    @train_station = TrainStation.find(params[:id])
   end
 
 end

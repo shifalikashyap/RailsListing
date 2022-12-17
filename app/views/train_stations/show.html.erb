@@ -1,0 +1,61 @@
+<div class="col-lg-12">
+  <div class="row">
+    <div class="card mt-5">
+      <div class="card-body">
+       <div class="col-lg-12">
+         <h5 class="text-center mt-2 mb-5" style="color:royalblue;">Train_id:<%= @train_station.train_id %></h5>
+         <h5 class="text-center mt-2 mb-5" style="color:royalblue;">Station_id:<%= @train_station.station_id %></h5>
+       </div>
+       <div class="col-lg-6">
+         <h5>Day:</h5>
+         <p><%= @train_station.day %></p>
+       </div>
+       <div class="col-lg-6">
+         <h5>Distance:</h5>
+         <p><%= @train_station.distance_in_km %></p>
+       </div>
+       <div class="col-lg-6">
+         <h5>Arrival Time:</h5>
+         <p><%= @train_station.arrival_time %></p>
+       </div>
+       <div class="col-lg-6">
+         <h5>Departure Time:</h5>
+         <p><%= @train_station.departure_time %></p>
+       </div>
+
+       <div class="col-lg-6">
+         <h5>Total Halt:</h5>
+         <p><%= @train_station.total_halt_in_minutes %></p>
+       </div>
+     </div>
+     <!-- Association -->
+    <table class= "table table-bordered mt-5">
+      <thead>
+        <tr>
+          <th>Train Name</th>
+          <th>Arrives</th>
+          <th>Departs</th>
+          <th>Halt Duration</th>
+          <th>Days</th>
+        </tr>
+      </thead>
+      <tbody>
+       <% @station.train_stations.each do |station_train| %>
+       <tr>
+         <td><%= station_train.train.name %></td>
+         <td><%= station_train.arrival_time.strftime("%H:%M %p")%></td>
+         <td><%= station_train.departure_time.strftime("%H:%M %p") %></td>
+         <td><%= station_train.total_halt_in_minutes.strftime("%H:%M:%S") %></td>
+         <td><%= station_train.day %></td>
+       </tr>
+       <% end %>
+     </tbody>
+    </table>
+ </div>
+</div>
+  <p class="mt-5">
+   <%= link_to 'Back', stations_path, class: "btn btn-success btn-lg", style:"width: 90px;" %>
+   <%= link_to 'Edit', edit_station_path(@station), class: "btn btn-primary btn-lg", style:"width: 90px;" %>
+  </p>
+</div>
+

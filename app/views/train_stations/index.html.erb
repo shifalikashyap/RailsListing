@@ -1,0 +1,32 @@
+<div class="col-lg-12">
+  <%= link_to 'New Train_Station', new_train_station_path, class: "btn btn-primary btn-lg rounded-0 mt-5" %>
+  <table class= "table table-bordered mt-5">
+    <thead>
+      <tr>
+        <th>Train</th>
+        <th>Station</th>
+        <th>Day</th>
+        <th>Distance(kms)</th>
+        <th>Arrival Time</th>
+        <th>Departure Time</th>
+        <th>Halt(minutes)</th>
+        <th colspan="2">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @train_stations.each do |train_station| %>
+      <tr>
+        <td><%= train_station.train.name %></td>
+        <td><%= train_station.station.name %></td>
+        <td><%= train_station.day %></td>
+        <td><%= train_station.distance_in_km %></td>
+        <td><%= train_station.arrival_time.strftime("%H:%M %p") %></td>
+        <td><%= train_station.departure_time.strftime("%H:%M %p") %></td>
+        <td><%= train_station.total_halt_in_minutes.strftime("%H:%M:%S") %></td>
+        <td><%= link_to 'Edit', edit_train_station_path(train_station), class:"btn btn-primary" %></td>
+        <td><%= link_to 'Destroy', train_station, class: "btn btn-danger",method: :delete, data: {confirm: 'Are you sure?'} %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
