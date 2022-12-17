@@ -26,12 +26,12 @@ class TrainStationsController < ApplicationController
 
   def update
     if @train_station.update(train_station_params)
-      redirect_to train_stations_path(@train_station)
+      redirect_to train_stations_path
     else
       render :edit
     end
   end
-  
+
 
   def destroy
     @train_station.destroy

@@ -22,7 +22,7 @@
         <td><%= train_station.distance_in_km %></td>
         <td><%= train_station.arrival_time.strftime("%H:%M %p") %></td>
         <td><%= train_station.departure_time.strftime("%H:%M %p") %></td>
-        <td><%= train_station.total_halt_in_minutes.strftime("%H:%M:%S") %></td>
+        <td><%= train_station.total_halt_in_minutes.strftime("%H:%M:%p") %></td>
         <td><%= link_to 'Edit', edit_train_station_path(train_station), class:"btn btn-primary" %></td>
         <td><%= link_to 'Destroy', train_station, class: "btn btn-danger",method: :delete, data: {confirm: 'Are you sure?'} %></td>
       </tr>
